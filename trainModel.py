@@ -33,6 +33,15 @@ Y_train = groundTruth4to3(Y_train)
 Y_val =  groundTruth4to3(Y_val)
 Y_test =  groundTruth4to3(Y_test)
 
+# for confusion matrix
+Y_val1=Y_val
+
+print("Before to_categorical")
+print("X_train, Y_train shape",X_train.shape, Y_train.shape)
+print("X_val, Y_val shape",X_val.shape, Y_val.shape)
+print("X_test, Y_test shape",X_test.shape, Y_test.shape)
+print("Y_train unique",np.unique(Y_train))
+
 # If your training data uses classes as numbers, to_categorical will transform those numbers in proper vectors for using with models
 from keras.utils import to_categorical
 Y_train = to_categorical(Y_train)
@@ -42,12 +51,15 @@ print("Before saving to files data shape")
 print("X_train, Y_train shape",X_train.shape, Y_train.shape)
 print("X_val, Y_val shape",X_val.shape, Y_val.shape)
 print("X_test, Y_test shape",X_test.shape, Y_test.shape)
-#
+print("Y_train unique",np.unique(Y_train))
+
 # np.save('./Training Data/X_train4.npy',X_train)
 # np.save('./Training Data/Y_train4.npy',Y_train)
 # np.save('./Validation Data/X_val4.npy',X_val)
 # np.save('./Validation Data/Y_val4.npy',Y_val)
 # np.save('./Test Data/X_test4.npy',X_test)
 # np.save('./Test Data/Y_test4.npy',Y_test)
+
+np.save('./Validation Data/Y_val1.npy',Y_val1)
 
 print("Data saved successfully")
