@@ -5,7 +5,6 @@ from preprocessing import normalize
 import os
 
 
-
 path1 = "Data/Brats2018/HGG/"
 path2 = "Data/Brats2018/LGG/"
 
@@ -56,7 +55,7 @@ def load_data(path):
 #
 #
 # # for HGG
-# data1,gt1 = load_data(path1)  #HGG having 210 patients
+# data2,gt2 = load_data(path1)  #HGG having 210 patients
 # for LGG
 data2,gt2 = load_data(path2)  #LGG having 75 patients
 
@@ -66,7 +65,7 @@ print("data2.dtype",data2.dtype)
 print("gt2.dtype",gt2.dtype)
 
 #
-# np.save('LG_data.npy',data2)
-# np.save('LG_gt.npy',gt2)
+np.save('LG_data.npy',data2)
+np.save('LG_gt.npy',gt2)
 
 

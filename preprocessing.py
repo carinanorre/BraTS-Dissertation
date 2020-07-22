@@ -29,7 +29,7 @@ def transposeData(data):
     return data
 
 def sliceCrop(data,gt):
-    # As all slices does not show tumour region so only mid-portion i.e. 90th - 120th slice was taken to create final data
+    # As all slices does not show tumour region so only mid-portion i.e. 30th - 120th slice was taken to create final data
     # each data is also cropped to centre with final dimension of (N1,192,192,4)
     data = data[:,30:120,30:222,30:222,:].reshape([-1,192,192,4])
     gt = gt[:,30:120,30:222,30:222].reshape([-1,192,192,1])
