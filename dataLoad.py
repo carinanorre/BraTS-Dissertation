@@ -5,7 +5,6 @@ from preprocessing import normalize
 import os
 
 
-
 path1 = "Data/Brats2018/HGG/"
 path2 = "Data/Brats2018/LGG/"
 
