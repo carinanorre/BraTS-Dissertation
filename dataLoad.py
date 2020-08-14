@@ -11,8 +11,6 @@ path2 = "Data/Brats2018/LGG/"
 
 def load_data(path):
   my_dir = sorted(os.listdir(path))
-  # print("length of dir",len(my_dir))  length of dir 75
-  # print("my_dir",my_dir) prints the LGG dir files  my_dir ['Brats18_2013_0_1', 'Brats18_2013_15_1', 'Brats18_2013_16_1', 'Brats18_2013_1_1'...]
 
   data = []
   gt = []
@@ -26,7 +24,7 @@ def load_data(path):
     flair = sitk.GetArrayFromImage(img_itk)
     # print("flair shape",flair.shape)  # (155, 240, 240)
     # print("flair dtype",flair.dtype)  # int16
-    # flair = normalize(flair)
+    flair = normalize(flair)
 
     img_itk = sitk.ReadImage(path + p + '/'+ data_list[1])
     seg =  sitk.GetArrayFromImage(img_itk)
@@ -37,15 +35,15 @@ def load_data(path):
 
     img_itk = sitk.ReadImage(path + p + '/'+ data_list[2])
     t1 =  sitk.GetArrayFromImage(img_itk)
-    # t1 = normalize(t1)
+    t1 = normalize(t1)
 
     img_itk = sitk.ReadImage(path + p + '/'+ data_list[3])
     t1ce =  sitk.GetArrayFromImage(img_itk)
-    # t1ce = normalize(t1ce)
+    t1ce = normalize(t1ce)
 
     img_itk = sitk.ReadImage(path + p + '/'+ data_list[4])
     t2 =  sitk.GetArrayFromImage(img_itk)
-    # t2 = normalize(t2)
+    t2 = normalize(t2)
 
     data.append([flair,t1,t1ce,t2])
     gt.append(seg)
@@ -65,8 +63,8 @@ print("gt2.shape",gt2.shape)
 print("data2.dtype",data2.dtype)
 print("gt2.dtype",gt2.dtype)
 
-
-# np.save('LG_data.npy',data2)
-# np.save('LG_gt.npy',gt2)
+#
+np.save('LG_data.npy',data2)
+np.save('LG_gt.npy',gt2)
 
 
